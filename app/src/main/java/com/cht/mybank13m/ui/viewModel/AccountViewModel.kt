@@ -36,9 +36,7 @@ class AccountViewModel @Inject constructor(
         accountsApi.updateAccountPartially(id, AccountState(isChecked)).handleAccountResponse()
     }
 
-    fun deleteAccount(id: String) {
-        accountsApi.deleteAccount(id).handleAccountResponse()
-    }
+    fun deleteAccount(id: String) { accountsApi.deleteAccount(id).handleAccountResponse() }
 
     private fun <T> Call<T>?.handleAccountResponse(
         onSuccess: (T) -> Unit = { loadAccounts() },
