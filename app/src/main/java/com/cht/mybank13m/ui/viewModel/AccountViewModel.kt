@@ -21,10 +21,7 @@ class AccountViewModel @Inject constructor(
     val accounts: LiveData<List<Account>> = _accounts
 
     fun loadAccounts() {
-        accountsApi.getAccounts()
-            .handleAccountResponse(
-                onSuccess = { _accounts.value = it }
-            )
+        accountsApi.getAccounts().handleAccountResponse(onSuccess = { _accounts.value = it })
     }
 
     fun addAccount(account: Account) {
@@ -32,21 +29,18 @@ class AccountViewModel @Inject constructor(
     }
 
     fun updateAccountFully(updatedAccount: Account) {
-        updatedAccount.id?.let {
-            accountsApi.updateAccountFully(it, updatedAccount).handleAccountResponse()
-        }
+        updatedAccount.id?.let { accountsApi.updateAccountFully(it, updatedAccount).handleAccountResponse() }
     }
 
     fun updateAccountPartially(id: String, isChecked: Boolean) {
-        accountsApi
-            .updateAccountPartially(id, AccountState(isChecked)).handleAccountResponse()
+        accountsApi.updateAccountPartially(id, AccountState(isChecked)).handleAccountResponse()
     }
 
     fun deleteAccount(id: String) {
         accountsApi.deleteAccount(id).handleAccountResponse()
     }
 
-    private fun <T>Call<T>?.handleAccountResponse(
+    private fun <T> Call<T>?.handleAccountResponse(
         onSuccess: (T) -> Unit = { loadAccounts() },
         onError: (String) -> Unit = {}
     ) {
