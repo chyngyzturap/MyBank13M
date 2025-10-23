@@ -6,6 +6,7 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.cht.mybank13m.R
 import com.cht.mybank13m.data.model.Account
 import com.cht.mybank13m.databinding.ActivityMainBinding
 import com.cht.mybank13m.databinding.DialogAddBinding
@@ -78,12 +79,12 @@ class MainActivity : AppCompatActivity(){
 
     private fun showDeleteDialog(id: String) {
         AlertDialog.Builder(this)
-            .setTitle("Вы уверены?")
-            .setMessage("Удалить счет с идентификатором - $id?")
-            .setPositiveButton("Удалить") {_,_ ->
+            .setTitle(getString(R.string.delete_sure))
+            .setMessage(getString(R.string.delete_with_id, id))
+            .setPositiveButton(getString(R.string.delete)) {_,_ ->
                 viewModel.deleteAccount(id)
             }
-            .setNegativeButton("Отмена") { _,_ ->
+            .setNegativeButton(getString(R.string.cancel)) { _,_ ->
             }.show()
     }
 

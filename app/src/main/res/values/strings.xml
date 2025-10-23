@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">MyBank13M</string>
+    <string name="delete_sure">Вы уверены</string>
+    <string name="delete">Удалить</string>
+    <string name="delete_with_id">Удалить счет с идентификатором - %s</string>
+    <string name="cancel">Отмена</string>
 </resources>
