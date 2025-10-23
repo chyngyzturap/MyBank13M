@@ -56,7 +56,7 @@ class AccountViewModel @Inject constructor(
                 if (result != null && response.isSuccessful) {
                     onSuccess(result)
                 } else {
-                    val errorText = "${response.code()}: ${response.errorBody()}, ${response.message()}"
+                    val errorText = "${response.code()}: ${response.message()}"
                     onError(errorText)
                 }
             }
