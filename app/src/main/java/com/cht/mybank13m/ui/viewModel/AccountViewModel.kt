@@ -56,11 +56,10 @@ class AccountViewModel @Inject constructor(
                 if (result != null && response.isSuccessful) {
                     onSuccess(result)
                 } else {
-                    val errorText = "${response.code()}: ${response.errorBody()}, ${response.message()}"
-                    onError(errorText)
+                    onError(response.code().toString())
                 }
             }
-
+gi
             override fun onFailure(call: Call<T>, t: Throwable) {
                 onError(t.message.toString())
             }
