@@ -99,7 +99,7 @@ class MainActivity : AppCompatActivity(){
                 etCurrency.setText(currency)
 
                 AlertDialog.Builder(this@MainActivity)
-                    .setTitle ("Изменение счета")
+                    .setTitle("Редактирование счета")
                     .setView(binding.root)
                     .setPositiveButton("Изменить") { _,_ ->
 
