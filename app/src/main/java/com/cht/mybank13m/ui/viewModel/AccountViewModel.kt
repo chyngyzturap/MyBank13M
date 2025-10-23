@@ -60,7 +60,7 @@ class AccountViewModel @Inject constructor(
                     onError(errorText)
                 }
             }
-gi
+
             override fun onFailure(call: Call<T>, t: Throwable) {
                 onError(t.message.toString())
             }
